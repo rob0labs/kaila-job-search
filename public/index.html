@@ -154,7 +154,8 @@ function renderStats() {
     [JOBS.length, "Roles on the board"],
     [m.gradeA ?? 0, "A-grade this week"],
     [m.gradeB ?? 0, "B-grade this week"],
-    [m.passedVerification != null ? `${m.passedVerification}` : "0", "Checked live this week"]
+    [m.passedVerification != null ? `${m.passedVerification}` : "0", "Checked live this week"],
+    [m.estCostUSD ? String(m.estCostUSD).replace(/\s*\(estimate\)\s*/i, "") : "n/a", "Cost of this scan (est.)"]
   ];
   $("stats").innerHTML = items.map(([v, l]) => `<div class="stat"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
   $("notes").textContent = m.notes || "";
